@@ -21,9 +21,3 @@
 * Your code should use the `pycodestyle` style (version 2.5)
 * All your files must be executable
 * The length of your files will be tested using `wc`
-
-## Tasks
-
-### Mandatory
-
-**[filtered_logger.py] (filtered_logger.py)** - Write a function called `filter_datum` that returns the log message obfuscated:
