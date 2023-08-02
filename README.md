@@ -1,5 +1,4 @@
 # alx-backend-user-data
-```
 
 ## Learning Objectives
 
