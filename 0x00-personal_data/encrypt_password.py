@@ -13,8 +13,8 @@ def hash_password(password: str) -> bytes:
     Args:
         password (str): password to be hashed
     """
-    b = password.encode()
-    hashed = hashpw(b, bcrypt.gensalt())
+    pass_wd = password.encode()
+    hashed = hashpw(pass_wd, bcrypt.gensalt())
     return hashed
 
 
