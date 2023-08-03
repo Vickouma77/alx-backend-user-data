@@ -7,10 +7,14 @@ import bcrypt
 from bcrypt import hashpw
 
 
-def hash_password(password) -> bytes:
-    """ Returns a salted, hashed password, which is a byte string. """
-    pass_wd = password.encode()
-    hashed = bcrypt.hashpw(pass_wd, bcrypt.gensalt())
+def hash_password(password: str) -> bytes:
+    """
+    Returns a hashed password
+    Args:
+        password (str): password to be hashed
+    """
+    b = password.encode()
+    hashed = hashpw(b, bcrypt.gensalt())
     return hashed
 
 
