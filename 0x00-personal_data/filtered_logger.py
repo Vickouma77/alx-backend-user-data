@@ -36,9 +36,11 @@ class RedactingFormatter(logging.Formatter):
         return redacted
 
 
+PII_FIELDS = ('name', 'email', 'phone', 'ssn', 'password')
+
+
 def get_logger() -> logging.Logger:
     """Returns a logging.Logger object."""
-    PII_FIELDS = ('name', 'email', 'phone', 'ssn', 'password')
     logger = logging.getLogger('user_data')
     logger.setLevel(logging.INFO)
     logger.propagate = False
