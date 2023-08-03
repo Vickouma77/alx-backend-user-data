@@ -4,7 +4,7 @@
 """
 
 import bcrypt
-from bcrypt import hashpw, gensalt
+from bcrypt import hashpw
 
 
 def hash_password(password) -> bytes:
