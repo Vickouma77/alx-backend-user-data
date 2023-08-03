@@ -8,3 +8,4 @@
 | File Name | Description |
 | --------- | ----------- |
 | filter_datum.py | Function that returns the log message obfuscated |
+| encrypt_password.py | Function that expects one string argument name password and returns a salted, hashed password, which is a byte string |
