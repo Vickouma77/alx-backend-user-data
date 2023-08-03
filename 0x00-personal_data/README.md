@@ -7,4 +7,4 @@
 ## Files
 | File Name | Description |
 | --------- | ----------- |
-| 0-filter_datum.py | Function that returns the log message obfuscated |
+| filter_datum.py | Function that returns the log message obfuscated |
