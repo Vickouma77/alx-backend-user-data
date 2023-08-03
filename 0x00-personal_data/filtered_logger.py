@@ -65,3 +65,16 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
                                  host=host,
                                  database=db_name)
     return db
+
+
+def main() -> None:
+    """
+    Takes no arguments and returns nothing.
+    """
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT COUNT(*) FROM users;")
+    for row in cursor:
+        print(row[0])
+    cursor.close()
+    db.close()
