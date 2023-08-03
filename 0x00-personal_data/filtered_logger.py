@@ -6,6 +6,8 @@ Regex-ing
 import re
 from typing import List
 import logging
+import mysql.connector
+import os
 
 
 def filter_datum(fields: List[str], redaction: str,
@@ -48,3 +50,12 @@ def get_logger() -> logging.Logger:
     handler.setFormatter(RedactingFormatter(list(PII_FIELDS)))
     logger.addHandler(handler)
     return logger
+
+def get_deb() -> mysql.connector.connection.MySQLConnection:
+    """Returns a connector to a database"""
+    deb = mysql.connector.connect(
+        host=os.getenv('PERSONAL_DATA_DB_HOST', 'root'),
+        database=os.getenv('PERSONAL_DATA_DB_NAME'),
+        user=os.getenv('PERSONAL_DATA_DB_USERNAME', 'localhost'),
+        password=os.getenv('PERSONAL_DATA_DB_PASSWORD', ''))
+    return deb
