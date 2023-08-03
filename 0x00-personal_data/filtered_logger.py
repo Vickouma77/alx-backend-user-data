@@ -52,7 +52,7 @@ def get_logger() -> logging.Logger:
     return logger
 
 
-def get_deb() -> mysql.connector.connection.MySQLConnection:
+def get_db() -> mysql.connector.connection.MySQLConnection:
     """Returns a connector to a database"""
     deb = mysql.connector.connect(
         host=os.getenv('PERSONAL_DATA_DB_HOST', 'root'),
