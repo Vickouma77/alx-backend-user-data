@@ -10,7 +10,7 @@
 
 ---
 # Requirements
-##Python Scripts
+## Python Scripts
 - Allowed editors: vi, vim, emacs
 - All your files will be interpreted/compiled on Ubuntu 14.04 LTS using python3 (version 3.4.3)
 - All your files should end with a new line
