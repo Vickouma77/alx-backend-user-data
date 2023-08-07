@@ -2,4 +2,3 @@ __pycache__/
 venv/
 *.csv
 *.zip
-__MACOSX/
