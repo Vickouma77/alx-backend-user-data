@@ -4,12 +4,11 @@
 
 
 from flask import Request
-from api.v1.views import app_views
 from typing import List, TypeVar
 
 
-class Auth():
-    """Auth class
+class Auth:
+    """ Auth class
     """
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
