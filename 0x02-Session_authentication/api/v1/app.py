@@ -68,6 +68,14 @@ def before_request_func() -> str:
     request.current_user = auth.current_user(request)
 
 
+def session_cookie(self, request=None):
+    """returns a cookie value from a request
+    """
+    if request is None:
+        return None
+    return request.cookies.get(getenv('SESSION_NAME'))
+
+
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")
     port = getenv("API_PORT", "5000")
