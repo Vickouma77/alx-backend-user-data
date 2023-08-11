@@ -19,3 +19,9 @@
 * Your code should use the `pycodestyle` style (version 2.5)
 * All your files must be executable
 * The length of your files will be tested using `wc`
+
+## Tasks
+
+* 0x00-personal_data
+* 0x01-Basic_authentication
+* 0x02-Sessions_authentication
