@@ -10,6 +10,9 @@ from user import User
 from user import Base
 
 
+Base = declarative_base()
+
+
 class DB:
     """DB class
     """
