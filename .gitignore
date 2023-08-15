@@ -3,4 +3,5 @@ venv/
 *.csv
 *.zip
 __MACOSX/
+*.db
 ```
