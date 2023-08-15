@@ -5,6 +5,7 @@ Hash password
 
 from bcrypt import hashpw, gensalt
 from sqlalchemy.orm.exc import NoResultFound
+from user import User
 from db import DB
 
 
