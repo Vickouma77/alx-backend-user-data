@@ -3,7 +3,7 @@
 Hash password
 """
 
-from bcrypt import hashpw, gensalt
+from bcrypt import hashpw, gensalt, checkpw
 from sqlalchemy.orm.exc import NoResultFound
 from user import User
 from db import DB
@@ -39,6 +39,6 @@ class Auth:
         """
         try:
             user = self._db.find_user_by(email=email)
-            return hashpw(password.encode('utf-8'), user.hashed_password) == user.hashed_password
+            return checkpw(password.encode('utf-8'), user.hashed_password)
         except NoResultFound:
             return False
