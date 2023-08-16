@@ -20,6 +20,21 @@ def root():
     return jsonify({"message": "Bienvenue"})
 
 
+@app.route('/users', methods=['POST'], strict_slashes=False)
+def users() -> str:
+    """ POST /users
+    Return:
+      - JSON payload
+    """
+    email = request.form.get('email')
+    password = request.form.get('password')
+    try:
+        user = Auth.register_user(email, password)
+        return jsonify({"email": user.email, "message": "user created"})
+    except ValueError:
+        return jsonify({"message": "email already registered"}), 400
+
+
 @app.route("/sessions", methods=["POST"], strict_slashes=False)
 def login() -> str:
     """POST /sessions
@@ -36,21 +51,6 @@ def login() -> str:
     response = jsonify({"email": email, "message": "logged in"})
     response.set_cookie("session_id", session_id)
     return response
-
-
-@app.route('/users', methods=['POST'], strict_slashes=False)
-def users() -> str:
-    """ POST /users
-    Return:
-      - JSON payload
-    """
-    email = request.form.get('email')
-    password = request.form.get('password')
-    try:
-        user = Auth.register_user(email, password)
-        return jsonify({"email": user.email, "message": "user created"})
-    except ValueError:
-        return jsonify({"message": "email already registered"}), 400
 
 
 if __name__ == "__main__":
