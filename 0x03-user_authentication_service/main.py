@@ -26,6 +26,30 @@ def log_in_wrong_password(email: str, password: str) -> None:
     print('OK', flush=True)
 
 
+def log_in(email: str, password: str) -> str:
+    """Test log_in
+    """
+    url = 'http://localhost:5000/sessions'
+    data = {'email': email, 'password': password}
+    response = requests.post(url, data=data)
+    assert response.status_code == 200
+    assert response.json() == {'email': email, 'message': 'logged in'}
+    print('OK', flush=True)
+    return response.cookies.get('session_id')
+
+
+def profile_unlogged() -> None:
+    """Test profile_unlogged
+    """
+    url = 'http://localhost:5000/profile'
+    response = requests.get(url)
+    assert response.status_code == 403
+    print('OK', flush=True)
+
+
+def 
+
+
 EMAIL = "guillaume@holberton.io"
 PASSWD = "b4l0u"
 NEW_PASSWD = "t4rt1fl3tt3"
