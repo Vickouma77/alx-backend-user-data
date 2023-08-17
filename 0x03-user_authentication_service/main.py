@@ -47,7 +47,15 @@ def profile_unlogged() -> None:
     print('OK', flush=True)
 
 
-def 
+def profile_logged(session_id: str) -> None:
+    """Test profile_logged
+    """
+    url = 'http://localhost:5000/profile'
+    cookies = {'session_id': session_id}
+    response = requests.get(url, cookies=cookies)
+    assert response.status_code == 200
+    assert response.json() == {'email':  cookies.get('email')}
+
 
 
 EMAIL = "guillaume@holberton.io"
