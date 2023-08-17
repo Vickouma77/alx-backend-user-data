@@ -16,6 +16,16 @@ def register_user(email: str, password: str) -> None:
     print('OK', flush=True)
 
 
+def log_in_wrong_password(email: str, password: str) -> None:
+    """Test log_in_wrong_password
+    """
+    url = 'http://localhost:5000/sessions'
+    data = {'email': email, 'password': password}
+    response = requests.post(url, data=data)
+    assert response.status_code == 401
+    print('OK', flush=True)
+
+
 EMAIL = "guillaume@holberton.io"
 PASSWD = "b4l0u"
 NEW_PASSWD = "t4rt1fl3tt3"
