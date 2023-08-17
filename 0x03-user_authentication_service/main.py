@@ -57,6 +57,16 @@ def profile_logged(session_id: str) -> None:
     assert response.json() == {'email':  cookies.get('email')}
 
 
+def log_out(session_id: str) -> None:
+    """Test log_out
+    """
+    url = 'http://localhost:5000/sessions'
+    cookies = {'session_id': session_id}
+    response = requests.delete(url, cookies=cookies)
+    assert response.status_code == 200
+    assert response.json() == {'message': 'Bienvenue'}
+    print('OK', flush=True)
+
 
 EMAIL = "guillaume@holberton.io"
 PASSWD = "b4l0u"
