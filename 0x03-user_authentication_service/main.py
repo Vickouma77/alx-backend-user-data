@@ -68,6 +68,19 @@ def log_out(session_id: str) -> None:
     print('OK', flush=True)
 
 
+def reset_password_token(email: str) -> str:
+    """Test reset_password_token
+    """
+    url = 'http://localhost:5000/reset_password'
+    data = {'email': email}
+    response = requests.post(url, data=data)
+    assert response.status_code == 200
+    assert response.json().get('email') == email
+    assert response.json().get('reset_token')
+    print('OK', flush=True)
+    return response.json().get('reset_token')
+
+
 EMAIL = "guillaume@holberton.io"
 PASSWD = "b4l0u"
 NEW_PASSWD = "t4rt1fl3tt3"
