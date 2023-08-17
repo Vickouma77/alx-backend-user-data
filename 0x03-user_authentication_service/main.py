@@ -81,6 +81,18 @@ def reset_password_token(email: str) -> str:
     return response.json().get('reset_token')
 
 
+def update_password(email: str, reset_token: str, new_password: str) -> None:
+    """Test update_password
+    """
+    url = 'http://localhost:5000/reset_password'
+    data = {'email': email, 'reset_token': reset_token,
+            'new_password': new_password}
+    response = requests.put(url, data=data)
+    assert response.status_code == 200
+    assert response.json() == {'email': email, 'message': 'Password updated'}
+    print('OK', flush=True)
+
+
 EMAIL = "guillaume@holberton.io"
 PASSWD = "b4l0u"
 NEW_PASSWD = "t4rt1fl3tt3"
