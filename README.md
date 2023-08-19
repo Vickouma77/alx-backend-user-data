@@ -19,7 +19,6 @@
 * Your code should use the `pycodestyle` style (version 2.5)
 * All your files must be executable
 * The length of your files will be tested using `wc`
----
 
 ## Tasks
 
